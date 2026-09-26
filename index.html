@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blesson Samuel D — Antenna Researcher &amp; Assistant Professor</title>
+<meta name="description" content="Blesson Samuel D — Assistant Professor and Ph.D. researcher in e-textile antenna design and fabrication at Karunya Institute of Technology and Science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS — "Woven Signals"
+   Graph-paper engineering worksheet · slate ink · copper thread
+   ============================================================ */
+:root {
+  --paper: #f3f4f0;          /* cool porcelain graph paper */
+  --paper-deep: #ebece7;     /* slightly darker sheet tone */
+  --grid: rgba(96, 116, 139, 0.10);  /* faint graph lines */
+  --ink: #232a33;            /* slate ink */
+  --ink-soft: #4c5563;       /* secondary text */
+  --ink-faint: #7d8593;      /* captions */
+  --copper: #b06a3b;         /* conductive thread */
+  --copper-deep: #8f5330;
+  --copper-wash: rgba(176, 106, 59, 0.09);
+  --line: rgba(35, 42, 51, 0.14);
+  --card: #fbfbf9;
+  --radius: 6px;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Karla", "Segoe UI", sans-serif;
+  --maxw: 1060px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--paper);
+  /* graph-paper texture */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+::selection { background: var(--copper); color: #fff; }
+
+a { color: var(--copper-deep); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+/* ---------- Top nav ---------- */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(243, 244, 240, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 14px 28px;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
+  flex-wrap: wrap;
+}
+.nav-name {
+  font-family: var(--font-display); font-weight: 600; font-size: 19px;
+  letter-spacing: 0.01em; color: var(--ink);
+}
+.nav-name span { color: var(--copper); }
+.nav-links { display: flex; gap: 26px; flex-wrap: wrap; }
+.nav-links a {
+  font-size: 14.5px; font-weight: 600; letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+.nav-links a:hover { color: var(--copper-deep); text-decoration: none; }
+@media (max-width: 640px) { .nav-links { gap: 16px; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 84px 0 64px;
+  display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 56px; align-items: center;
+}
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding: 56px 0 40px; }
+  .hero-visual { order: -1; max-width: 340px; margin: 0 auto; }
+}
+.hero-kicker {
+  font-size: 15px; font-weight: 700; color: var(--copper-deep);
+  letter-spacing: 0.04em; margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6.2vw, 68px);
+  font-weight: 600; line-height: 1.05; letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+.hero-roles {
+  font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: clamp(20px, 2.6vw, 27px); color: var(--ink-soft);
+  margin-bottom: 26px; line-height: 1.35;
+}
+.hero-roles em { color: var(--copper-deep); font-style: italic; }
+.hero-mission {
+  font-size: 18.5px; max-width: 56ch; color: var(--ink-soft);
+  margin-bottom: 34px;
+}
+.hero-contact { display: flex; gap: 12px; flex-wrap: wrap; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); font-size: 14.5px; font-weight: 600;
+  color: var(--ink-soft);
+  transition: border-color 0.2s, color 0.2s;
+}
+.chip:hover { border-color: var(--copper); color: var(--copper-deep); text-decoration: none; }
+.chip svg { width: 15px; height: 15px; stroke: var(--copper); }
+
+/* Radiation-pattern hero visual */
+.hero-visual { text-align: center; }
+.hero-visual svg { width: 100%; height: auto; }
+.hero-visual figcaption {
+  font-size: 13px; color: var(--ink-faint); margin-top: 10px; letter-spacing: 0.02em;
+}
+
+/* ---------- Sections ---------- */
+section { padding: 72px 0; }
+.section-title {
+  font-family: var(--font-display); font-size: clamp(30px, 4vw, 40px);
+  font-weight: 600; letter-spacing: -0.01em; margin-bottom: 14px;
+}
+.section-lede { color: var(--ink-soft); max-width: 62ch; margin-bottom: 36px; }
+.rule { border: none; border-top: 1px solid var(--line); max-width: var(--maxw); margin: 0 auto; }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; }
+@media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+.about-text p { margin-bottom: 18px; }
+.about-facts {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--card); padding: 26px 28px; align-self: start;
+}
+.about-facts h3 {
+  font-family: var(--font-display); font-size: 19px; font-weight: 600; margin-bottom: 16px;
+}
+.fact { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+.fact:last-child { border-bottom: none; }
+.fact dt { color: var(--ink-faint); font-weight: 600; }
+.fact dd { text-align: right; color: var(--ink); font-weight: 600; }
+
+/* Research */
+.research-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+@media (max-width: 760px) { .research-cards { grid-template-columns: 1fr; } }
+.r-card {
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--card);
+  padding: 28px; position: relative; overflow: hidden;
+}
+.r-card::before {
+  content: ""; position: absolute; inset: 0 auto 0 0; width: 4px;
+  background: var(--copper); opacity: 0.85;
+}
+.r-card h3 { font-family: var(--font-display); font-size: 21px; font-weight: 600; margin-bottom: 10px; }
+.r-card p { font-size: 15.5px; color: var(--ink-soft); }
+
+/* Publications */
+.pub-list { display: grid; gap: 14px; }
+.pub {
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--card);
+  padding: 18px 22px; display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start;
+}
+.pub-year {
+  font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--copper-deep);
+  line-height: 1.1; padding-top: 2px;
+}
+.pub-body h3 { font-size: 16.5px; font-weight: 700; line-height: 1.4; margin-bottom: 4px; }
+.pub-meta { font-size: 14px; color: var(--ink-faint); }
+.pub-meta a { color: var(--copper-deep); font-weight: 600; }
+.pub-empty { color: var(--ink-faint); font-style: italic; }
+
+/* Documents */
+.doc-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 760px) { .doc-list { grid-template-columns: 1fr; } }
+.doc {
+  display: flex; align-items: center; gap: 16px;
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--card);
+  padding: 18px 20px;
+}
+.doc svg { width: 30px; height: 30px; stroke: var(--copper); flex-shrink: 0; }
+.doc-name { font-weight: 700; font-size: 15.5px; margin-bottom: 2px; }
+.doc-desc { font-size: 13.5px; color: var(--ink-faint); }
+.doc-arrow { margin-left: auto; color: var(--copper-deep); font-weight: 700; font-size: 15px; }
+
+/* Skills */
+.skill-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+@media (max-width: 860px) { .skill-groups { grid-template-columns: 1fr; } }
+.skill-group h3 {
+  font-family: var(--font-display); font-size: 19px; font-weight: 600; margin-bottom: 14px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--copper);
+  display: inline-block;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 9px; }
+.tag {
+  font-size: 14px; font-weight: 600; color: var(--ink-soft);
+  background: var(--copper-wash); border: 1px solid rgba(176, 106, 59, 0.25);
+  padding: 5px 13px; border-radius: 4px;
+}
+
+/* Contact */
+.contact-panel {
+  border: 1px solid var(--line); border-radius: var(--radius); background: var(--card);
+  padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+}
+@media (max-width: 760px) { .contact-panel { grid-template-columns: 1fr; padding: 28px; } }
+.contact-list { display: grid; gap: 18px; align-content: start; }
+.contact-item { display: flex; gap: 14px; align-items: flex-start; }
+.contact-item svg { width: 19px; height: 19px; stroke: var(--copper); margin-top: 3px; flex-shrink: 0; }
+.contact-item b { display: block; font-size: 13.5px; color: var(--ink-faint); letter-spacing: 0.03em; margin-bottom: 2px; }
+.contact-item a, .contact-item span { font-weight: 600; font-size: 16px; }
+.contact-why p { color: var(--ink-soft); font-size: 15.5px; margin-bottom: 14px; }
+.contact-why { border-left: 1px solid var(--line); padding-left: 40px; }
+@media (max-width: 760px) { .contact-why { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 26px; } }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line); padding: 30px 0 40px;
+  font-size: 14px; color: var(--ink-faint);
+  display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+}
+
+/* Radiation-pattern load animation */
+@keyframes trace {
+  from { stroke-dashoffset: 1200; }
+  to { stroke-dashoffset: 0; }
+}
+.radiate-main {
+  stroke-dasharray: 1200;
+  animation: trace 2.6s ease-out forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-copy > * { animation: fadeUp 0.7s ease-out both; }
+.hero-copy > *:nth-child(2) { animation-delay: 0.08s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.16s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.24s; }
+.hero-copy > *:nth-child(5) { animation-delay: 0.32s; }
+
+/* ---------- Dimensional portfolio theme ---------- */
+:root {
+  color-scheme: dark;
+  --paper: #080b14;
+  --paper-deep: #0d1220;
+  --grid: rgba(142, 164, 220, .055);
+  --ink: #f2f5ff;
+  --ink-soft: #aab5ce;
+  --ink-faint: #77839f;
+  --copper: #8b7bff;
+  --copper-deep: #b5adff;
+  --copper-wash: rgba(139,123,255,.12);
+  --line: rgba(173,188,230,.16);
+  --card: rgba(18,24,42,.76);
+  --radius: 18px;
+}
+body {
+  background-image: radial-gradient(ellipse at 75% 8%, rgba(62,54,150,.23), transparent 34%),
+    radial-gradient(ellipse at 8% 42%, rgba(21,126,145,.12), transparent 30%),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: auto, auto, 36px 36px, 36px 36px;
+}
+nav { background: rgba(8,11,20,.76); border-color: var(--line); }
+.nav-inner { align-items: center; }
+.nav-name { color: var(--ink); }
+.hero { min-height: 620px; padding-top: 72px; padding-bottom: 72px; }
+.hero-kicker { color: #a9a0ff; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; }
+.hero h1 { font-size: clamp(48px, 7vw, 82px); letter-spacing: -.045em; }
+.hero-roles em { color: #a9a0ff; }
+.hero-mission { color: var(--ink-soft); }
+.chip { background: rgba(20,26,45,.78); color: var(--ink-soft); border-color: var(--line); }
+.chip:hover { border-color: #8b7bff; color: #fff; }
+.hero-visual { position: relative; isolation: isolate; perspective: 900px; }
+.hero-visual::before {
+  content: ""; position: absolute; z-index: -1; width: 72%; aspect-ratio: 1; left: 14%; top: 10%;
+  border-radius: 50%; background: radial-gradient(circle, rgba(100,83,255,.28), rgba(24,176,203,.08) 48%, transparent 70%);
+  filter: blur(12px); animation: aura 6s ease-in-out infinite alternate;
+}
+.hero-visual svg { overflow: visible; filter: drop-shadow(0 20px 36px rgba(0,0,0,.35)); transform: rotateX(13deg) rotateY(-12deg); animation: float3d 7s ease-in-out infinite; }
+.hero-visual svg g { stroke: rgba(146,162,208,.22) !important; }
+.hero-visual .radiate-main { stroke: #a99cff; stroke-width: 3; filter: drop-shadow(0 0 8px rgba(139,123,255,.8)); }
+.hero-visual svg circle:last-child { fill: #7ce9ef; filter: drop-shadow(0 0 12px #7ce9ef); }
+.hero-visual figcaption { color: var(--ink-faint); }
+.rule { border-color: var(--line); }
+section { padding-top: 88px; padding-bottom: 88px; }
+.section-title { letter-spacing: -.035em; }
+.section-lede { color: var(--ink-soft); }
+.about-facts, .r-card, .pub, .doc, .contact-panel {
+  background: linear-gradient(145deg, rgba(25,32,55,.92), rgba(13,18,32,.86));
+  border-color: var(--line); border-radius: var(--radius);
+  box-shadow: 0 18px 45px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.045);
+}
+.about-facts { transform: perspective(900px) rotateY(-3deg); }
+.r-card { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.r-card:hover, .doc:hover { transform: translateY(-6px) rotateX(1deg); border-color: rgba(139,123,255,.55); box-shadow: 0 22px 48px rgba(0,0,0,.3); text-decoration: none; }
+.r-card::before { background: linear-gradient(#8b7bff,#3ed2dc); }
+.r-card h3, .pub-body h3, .doc-name { color: var(--ink); }
+.r-card p, .pub-meta, .doc-desc, .contact-why p { color: var(--ink-soft); }
+.fact { border-color: var(--line); }
+.fact dt { color: var(--ink-faint); }
+.fact dd { color: var(--ink); }
+.pub-year, a { color: #b5adff; }
+.pub-meta a, .doc-arrow { color: #b5adff; }
+.tag { color: #d2d7ec; border-color: rgba(139,123,255,.25); background: rgba(139,123,255,.12); border-radius: 999px; }
+.contact-why { border-color: var(--line); }
+.contact-item svg, .doc svg, .chip svg { stroke: #a99cff; }
+footer { border-color: var(--line); color: var(--ink-faint); }
+/* On-page editing controls */
+.edit-tools { position: fixed; z-index: 100; right: 20px; bottom: 20px; display: flex; gap: 9px; align-items: center; padding: 10px; border: 1px solid var(--line); border-radius: 16px; background: rgba(12,16,29,.94); box-shadow: 0 12px 40px rgba(0,0,0,.4); backdrop-filter: blur(14px); }
+.edit-tools button { border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; font: 600 13px var(--font-body); color: var(--ink); background: #1b2340; cursor: pointer; }
+.edit-tools button.primary { background: #7565ef; border-color: #9589ff; color: #fff; }
+.edit-tools button:hover { filter: brightness(1.15); }
+.edit-hint { display: none; color: #b8c2dc; font-size: 12px; padding: 0 5px; }
+body.editing [data-editable="true"] { outline: 1px dashed #998cff; outline-offset: 4px; border-radius: 3px; cursor: text; }
+@media (max-width: 560px) { .edit-tools { left: 12px; right: 12px; bottom: 12px; justify-content: center; } .edit-tools button { padding: 9px 10px; } .edit-hint { display: none !important; } }
+@keyframes float3d { 0%,100% { transform: translateY(0) rotateX(13deg) rotateY(-12deg); } 50% { transform: translateY(-12px) rotateX(17deg) rotateY(-5deg); } }
+@keyframes aura { from { opacity: .65; transform: scale(.92); } to { opacity: 1; transform: scale(1.08); } }
+@media (max-width: 860px) { .hero { min-height: 0; } .about-facts { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .hero-visual svg, .hero-visual::before { animation: none; } }
+</style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAVIGATION
+     ================================================================ -->
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Blesson Samuel D<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#documents">Documents</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<header class="hero wrap" id="top">
+  <div class="hero-copy">
+    <p class="hero-kicker">Antenna Design · E-Textiles · Societal Impact</p>
+    <h1>Blesson Samuel D</h1>
+    <p class="hero-roles">Assistant Professor &amp; Ph.D. researcher, <em>weaving antennas into fabric.</em></p>
+    <p class="hero-mission">
+      I design and fabricate textile-based antennas at Karunya Institute of Technology and Science —
+      engineering wearable technology that reaches the people who need it most. My research narrows
+      every day toward one goal: technology in service of the helpless and underserved.
+    </p>
+    <div class="hero-contact" id="hero-chips"></div>
+  </div>
+
+  <figure class="hero-visual" aria-hidden="true">
+    <!-- Animated antenna radiation pattern, drawn in "copper thread" -->
+    <svg viewBox="0 0 420 420" role="img" aria-label="Stylised antenna radiation pattern">
+      <!-- graph rings -->
+      <g fill="none" stroke="rgba(96,116,139,0.18)" stroke-width="1">
+        <circle cx="210" cy="210" r="60"/>
+        <circle cx="210" cy="210" r="110"/>
+        <circle cx="210" cy="210" r="160"/>
+        <circle cx="210" cy="210" r="190"/>
+        <line x1="210" y1="10" x2="210" y2="410"/>
+        <line x1="10" y1="210" x2="410" y2="210"/>
+      </g>
+      <!-- main lobe (traced on load) -->
+      <path class="radiate-main" fill="none" stroke="#b06a3b" stroke-width="2.5" stroke-linecap="round"
+        d="M 210 210
+           C 210 150, 180 120, 160 95
+           C 130 55, 80 50, 45 78
+           C 5 112, 5 175, 40 215
+           C 75 258, 130 262, 160 232
+           C 182 210, 200 235, 210 260
+           C 220 235, 238 210, 260 232
+           C 290 262, 345 258, 380 215
+           C 415 175, 415 112, 375 78
+           C 340 50, 290 55, 260 95
+           C 240 120, 210 150, 210 210"/>
+      <!-- inner woven texture suggestion -->
+      <path fill="none" stroke="#b06a3b" stroke-width="1" opacity="0.35" stroke-dasharray="5 5"
+        d="M 210 210 C 210 160, 185 130, 155 105 M 210 210 C 210 160, 235 130, 265 105
+           M 210 210 C 185 235, 155 245, 120 238 M 210 210 C 235 235, 265 245, 300 238"/>
+      <circle cx="210" cy="210" r="6" fill="#b06a3b"/>
+    </svg>
+    <figcaption>TEXTILE ANTENNA · RADIATION PATTERN</figcaption>
+  </figure>
+</header>
+
+<hr class="rule">
+
+<!-- ================================================================
+     ABOUT
+     ================================================================ -->
+<section id="about" class="wrap">
+  <h2 class="section-title">About me</h2>
+  <p class="section-lede">A teacher by profession, a researcher by pursuit, and an engineer who believes antennas belong in cloth as much as in metal.</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I serve as an Assistant Professor while pursuing my Ph.D. part-time at the
+        Karunya Institute of Technology and Science, Coimbatore. My doctoral research lies in the
+        design and fabrication of antennas built on e-textiles — antenna structures made from
+        conductive threads and fabrics that can be worn, bent, washed, and lived in.
+      </p>
+      <p>
+        Alongside my core research, I work with machine learning and deep learning applied to
+        antenna and RF problems, and I build for the web using modern AI-assisted ("vibe coding")
+        development practices — the same way this site itself was made.
+      </p>
+      <p>
+        What anchors all of it is a conviction: research is only complete when it reaches people.
+        I deliberately steer my work toward societal development — healthcare monitoring, disaster
+        response, and technology access for communities that conventional engineering often overlooks.
+        If an antenna I weave ends up helping one genuinely helpless person, the Ph.D. has already
+        justified itself.
+      </p>
+    </div>
+    <dl class="about-facts">
+      <h3>At a glance</h3>
+      <div class="fact"><dt>Role</dt><dd>Assistant Professor</dd></div>
+      <div class="fact"><dt>Ph.D.</dt><dd>Part-time, Karunya</dd></div>
+      <div class="fact"><dt>Research area</dt><dd>E-textile antenna design</dd></div>
+      <div class="fact"><dt>Location</dt><dd>Karunya University, Coimbatore</dd></div>
+      <div class="fact"><dt>Languages</dt><dd>English, Malayalam, Tamil, Hindi</dd></div>
+    </dl>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================
+     RESEARCH
+     ================================================================ -->
+<section id="research" class="wrap">
+  <h2 class="section-title">Research</h2>
+  <p class="section-lede">Textile-based antenna engineering, with an explicit bias toward work that helps people.</p>
+  <div class="research-cards">
+    <article class="r-card">
+      <h3>E-textile antenna fabrication</h3>
+      <p>Designing and fabricating antennas from conductive fabrics and threads — studying how embroidery geometry, substrate textiles, and bending affect radiation performance, bandwidth, and efficiency in real wearable conditions.</p>
+    </article>
+    <article class="r-card">
+      <h3>Wearable &amp; body-centric communication</h3>
+      <p>Antenna systems integrated into clothing for health monitoring, patient tracking, and continuous on-body communication — where comfort and signal integrity must coexist.</p>
+    </article>
+    <article class="r-card">
+      <h3>Machine learning for antenna design</h3>
+      <p>Applying deep learning techniques to antenna modelling, optimisation, and parameter prediction — shortening the design loop from simulation to fabricated prototype.</p>
+    </article>
+    <article class="r-card">
+      <h3>Technology for the underserved</h3>
+      <p>Directing the research toward low-cost, deployable solutions for rural healthcare, disaster relief, and assistive technology — engineering measured by the help it delivers, not only the papers it produces.</p>
+    </article>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================
+     PUBLICATIONS (rendered from the DATA block below)
+     ================================================================ -->
+<section id="publications" class="wrap">
+  <h2 class="section-title">Publications &amp; research works</h2>
+  <p class="section-lede">Journal papers, conference presentations, and thesis work.</p>
+  <div class="pub-list" id="pub-list"></div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================
+     DOCUMENTS (rendered from the DATA block below)
+     ================================================================ -->
+<section id="documents" class="wrap">
+  <h2 class="section-title">Documents</h2>
+  <p class="section-lede">My CV, certificates, and downloadable research material.</p>
+  <div class="doc-list" id="doc-list"></div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================
+     SKILLS (rendered from the DATA block below)
+     ================================================================ -->
+<section id="skills" class="wrap">
+  <h2 class="section-title">Skills &amp; expertise</h2>
+  <p class="section-lede">Three worlds I move between daily.</p>
+  <div class="skill-groups" id="skill-groups"></div>
+</section>
+
+<hr class="rule">
+
+<!-- ================================================================
+     CONTACT
+     ================================================================ -->
+<section id="contact" class="wrap">
+  <h2 class="section-title">Get in touch</h2>
+  <p class="section-lede">Whether it's research collaboration, supervision, or a project that helps people — I'd like to hear about it.</p>
+  <div class="contact-panel">
+    <div class="contact-list" id="contact-list"></div>
+    <div class="contact-why">
+      <p><strong style="font-family:var(--font-display);">Collaboration &amp; supervision.</strong> I'm open to joint research in e-textile antennas, ML-assisted antenna optimisation, and applied wearable technology.</p>
+      <p><strong style="font-family:var(--font-display);">Societal projects.</strong> If your organisation works with underserved communities and needs wearable/RF engineering support, write to me — those emails go to the top of the pile.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Blesson Samuel D · Karunya Institute of Technology and Science, Coimbatore</span>
+  <span>Woven, not printed.</span>
+</footer>
+
+<aside class="edit-tools" id="edit-tools" aria-label="Website editing tools">
+  <span class="edit-hint" id="edit-hint">Click outlined text to edit</span>
+  <button type="button" id="edit-toggle" class="primary">Edit website</button>
+  <button type="button" id="edit-save" hidden>Save</button>
+  <button type="button" id="edit-download">Download website</button>
+</aside>
+
+<script>
+/* ================================================================
+   ██ EDIT YOUR DETAILS HERE — this is the only block you ever
+   ██ need to touch to update the website. Change the text between
+   ██ the quotes. See the README.txt file for a step-by-step guide.
+   ================================================================ */
+
+const SITE_DATA = {
+
+  /* --- Contact chips shown in the hero and contact section --- */
+  contact: {
+    phone:  { label: "9843393664",          href: "tel:+919843393664" },
+    email:  { label: "blesonjdsamuel@gmail.com", href: "mailto:blesonjdsamuel@gmail.com" },
+    instit: { label: "blessonsamuel@karunya.edu", href: "mailto:blessonsamuel@karunya.edu" },
+    location: { label: "Karunya University, Coimbatore", href: "https://www.google.com/maps/search/Karunya+Institute+of+Technology+and+Science" }
+  },
+
+  /* --- Extra links (leave as "" if you don't have them yet) --- */
+  profiles: {
+    googleScholar: "",   // e.g. "https://scholar.google.com/citations?user=XXXX"
+    linkedin:     "",
+    orcid:        "",
+    github:       ""
+  },
+
+  /* --- Publications. To add a new one, copy an entire { ... } block,
+         paste it before the closing ], and edit the text. --- */
+  publications: [
+    {
+      year: 2026,
+      title: "Add your first publication here — title, venue, and co-authors",
+      meta: "To edit this, open index.html and find the EDIT YOUR DETAILS HERE block",
+      link: ""
+    },
+    {
+      year: 2025,
+      title: "Research works in progress on e-textile antenna fabrication will appear here as they are published",
+      meta: "Under review",
+      link: ""
+    }
+  ],
+
+  /* --- Documents. Put the PDF file in the same folder as this file,
+         then set file: "documents/your-file.pdf". --- */
+  documents: [
+    {
+      name: "Curriculum Vitae (CV)",
+      desc: "Complete academic and professional CV",
+      file: "documents/cv.pdf"
+    },
+    {
+      name: "Ph.D. research proposal",
+      desc: "E-textile antenna design and fabrication",
+      file: "documents/research-proposal.pdf"
+    },
+    {
+      name: "Certificates",
+      desc: "Academic and professional certificates",
+      file: "documents/certificates.pdf"
+    }
+  ],
+
+  /* --- Skills, grouped into three columns. Edit or add tags freely. --- */
+  skills: [
+    {
+      group: "Antenna & RF engineering",
+      items: ["E-textile antenna design", "Antenna fabrication", "Wearable antennas",
+              "Microstrip design", "HFSS / CST simulation", "S-parameter analysis"]
+    },
+    {
+      group: "Machine learning & AI",
+      items: ["Machine learning", "Deep learning", "ML for antenna optimisation",
+              "Python", "Predictive modelling"]
+    },
+    {
+      group: "Development & web",
+      items: ["Vibe coding", "Web development", "HTML / CSS / JavaScript",
+              "AI-assisted development", "Technical documentation"]
+    }
+  ]
+};
+
+/* ================================================================
+   Everything below renders the page from SITE_DATA.
+   You should not need to change anything below this line.
+   ================================================================ */
+
+const icon = {
+  phone: '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.789.519-1.199.285-2.9-1.654-5.343-4.097-6.997-6.997-.234-.41-.091-.917.285-1.199l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102A1.125 1.125 0 005.872 2.25H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>',
+  mail: '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>',
+  pin: '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>',
+  doc: '<svg fill="none" viewBox="0 0 24 24" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>'
+};
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* Hero contact chips */
+const c = SITE_DATA.contact;
+document.getElementById("hero-chips").innerHTML = [
+  `<a class="chip" href="${esc(c.phone.href)}">${icon.phone}<span>${esc(c.phone.label)}</span></a>`,
+  `<a class="chip" href="${esc(c.email.href)}">${icon.mail}<span>Email</span></a>`,
+  `<a class="chip" href="${esc(c.instit.href)}">${icon.mail}<span> karunya.edu</span></a>`,
+  `<a class="chip" href="${esc(c.location.href)}">${icon.pin}<span>${esc(c.location.label)}</span></a>`
+].join("");
+
+/* Contact section */
+document.getElementById("contact-list").innerHTML = [
+  `<div class="contact-item">${icon.phone}<div><b>Phone</b><a href="${esc(c.phone.href)}">${esc(c.phone.label)}</a></div></div>`,
+  `<div class="contact-item">${icon.mail}<div><b>Personal mail</b><a href="${esc(c.email.href)}">${esc(c.email.label)}</a></div></div>`,
+  `<div class="contact-item">${icon.mail}<div><b>Institutional mail</b><a href="${esc(c.instit.href)}">${esc(c.instit.label)}</a></div></div>`,
+  `<div class="contact-item">${icon.pin}<div><b>Location</b><a href="${esc(c.location.href)}">${esc(c.location.label)}</a></div></div>`,
+  SITE_DATA.profiles.googleScholar ? `<div class="contact-item">${icon.doc}<div><b>Google Scholar</b><a href="${esc(SITE_DATA.profiles.googleScholar)}">View profile</a></div></div>` : "",
+  SITE_DATA.profiles.linkedin ? `<div class="contact-item">${icon.doc}<div><b>LinkedIn</b><a href="${esc(SITE_DATA.profiles.linkedin)}">View profile</a></div></div>` : ""
+].join("");
+
+/* Publications */
+const pubs = SITE_DATA.publications;
+document.getElementById("pub-list").innerHTML = pubs.length
+  ? pubs.map(p => `
+    <article class="pub">
+      <div class="pub-year">${esc(p.year)}</div>
+      <div class="pub-body">
+        <h3>${p.link ? `<a href="${esc(p.link)}">${esc(p.title)}</a>` : esc(p.title)}</h3>
+        <p class="pub-meta">${esc(p.meta)}</p>
+      </div>
+    </article>`).join("")
+  : `<p class="pub-empty">Publications will appear here soon.</p>`;
+
+/* Documents */
+document.getElementById("doc-list").innerHTML = SITE_DATA.documents.map(d => `
+  <a class="doc" href="${esc(d.file)}">
+    ${icon.doc}
+    <div>
+      <div class="doc-name">${esc(d.name)}</div>
+      <div class="doc-desc">${esc(d.desc)}</div>
+    </div>
+    <span class="doc-arrow" aria-hidden="true">↓</span>
+  </a>`).join("");
+
+/* Skills */
+document.getElementById("skill-groups").innerHTML = SITE_DATA.skills.map(g => `
+  <div class="skill-group">
+    <h3>${esc(g.group)}</h3>
+    <div class="tags">${g.items.map(i => `<span class="tag">${esc(i)}</span>`).join("")}</div>
+  </div>`).join("");
+
+/* Simple visual editor: save changes in this browser or download a new site file. */
+(() => {
+  const editButton = document.getElementById("edit-toggle");
+  const saveButton = document.getElementById("edit-save");
+  const downloadButton = document.getElementById("edit-download");
+  const hint = document.getElementById("edit-hint");
+  const selector = "h1, h2, h3, .hero-kicker, .hero-mission, .section-lede, .about-text p, .r-card p, .pub-meta, .pub-body h3, .doc-name, .doc-desc, .skill-group h3, .tag, .contact-item b, .contact-item a, .contact-item span, .contact-why p, .about-facts h3, .fact dt, .fact dd, footer span";
+  let targets = [];
+  const collect = () => [...document.querySelectorAll(selector)].filter(el => !el.querySelector("strong,em,a,svg"));
+  const stored = localStorage.getItem("b sd-portfolio-edits");
+  if (stored) {
+    try {
+      const values = JSON.parse(stored);
+      collect().forEach((el, i) => { if (typeof values[i] === "string") el.textContent = values[i]; });
+    } catch (_) { localStorage.removeItem("b sd-portfolio-edits"); }
+  }
+  editButton.addEventListener("click", () => {
+    const editing = document.body.classList.toggle("editing");
+    targets = collect();
+    targets.forEach(el => { el.contentEditable = editing ? "true" : "false"; el.dataset.editable = editing ? "true" : "false"; });
+    editButton.textContent = editing ? "Done editing" : "Edit website";
+    saveButton.hidden = !editing;
+    hint.style.display = editing ? "inline" : "none";
+  });
+  saveButton.addEventListener("click", () => {
+    targets = collect();
+    localStorage.setItem("b sd-portfolio-edits", JSON.stringify(targets.map(el => el.textContent.trim())));
+    targets.forEach(el => { el.contentEditable = "false"; delete el.dataset.editable; });
+    document.body.classList.remove("editing");
+    editButton.textContent = "Edit website";
+    saveButton.hidden = true;
+    hint.style.display = "none";
+    alert("Saved in this browser. Use Download website to create a shareable updated HTML file.");
+  });
+  downloadButton.addEventListener("click", () => {
+    const copy = document.documentElement.cloneNode(true);
+    copy.querySelector("#edit-tools")?.remove();
+    copy.querySelectorAll("script").forEach(script => script.remove());
+    copy.querySelectorAll("[contenteditable], [data-editable]").forEach(el => { el.removeAttribute("contenteditable"); el.removeAttribute("data-editable"); });
+    const file = new Blob(["<!DOCTYPE html>\n" + copy.outerHTML], { type: "text/html;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(file);
+    link.download = "blesson-samuel-portfolio-edited.html";
+    link.click();
+    URL.revokeObjectURL(link.href);
+  });
+})();
+</script>
+</body>
+</html>
