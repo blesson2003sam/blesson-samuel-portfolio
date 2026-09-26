@@ -648,8 +648,14 @@ document.getElementById("contact-list").innerHTML = [
   `<div class="contact-item">${icon.mail}<div><b>Personal mail</b><a href="${esc(c.email.href)}">${esc(c.email.label)}</a></div></div>`,
   `<div class="contact-item">${icon.mail}<div><b>Institutional mail</b><a href="${esc(c.instit.href)}">${esc(c.instit.label)}</a></div></div>`,
   `<div class="contact-item">${icon.pin}<div><b>Location</b><a href="${esc(c.location.href)}">${esc(c.location.label)}</a></div></div>`,
-  SITE_DATA.profiles.googleScholar ? `<div class="contact-item">${icon.doc}<div><b>Google Scholar</b><a href="${esc(SITE_DATA.profiles.googleScholar)}">View profile</a></div></div>` : "",
-  SITE_DATA.profiles.linkedin ? `<div class="contact-item">${icon.doc}<div><b>LinkedIn</b><a href="${esc(SITE_DATA.profiles.linkedin)}">View profile</a></div></div>` : ""
+  ...[
+    ["Google Scholar", SITE_DATA.profiles.googleScholar],
+    ["LinkedIn", SITE_DATA.profiles.linkedin],
+    ["ORCID", SITE_DATA.profiles.orcid],
+    ["GitHub", SITE_DATA.profiles.github]
+  ].filter(([, url]) => url).map(([name, url]) =>
+    `<div class="contact-item">${icon.doc}<div><b>${esc(name)}</b><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">View profile ↗</a></div></div>`
+  )
 ].join("");
 
 /* Publications */
